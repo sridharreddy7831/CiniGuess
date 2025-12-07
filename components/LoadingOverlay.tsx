@@ -7,7 +7,7 @@ export const LoadingOverlay: React.FC = () => {
       {/* GIF Loader */}
       <div className="relative mb-8 flex items-center justify-center">
         <img
-          src=""   // <-- change to your GIF path
+          src="./loader.gif"   // <-- change to your GIF path
           alt="Loading..."
           className="w-30 h-30 object-contain" // Maintain same dimensions
         />
