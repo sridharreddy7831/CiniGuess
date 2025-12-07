@@ -227,27 +227,7 @@ const App: React.FC = () => {
       <p className="text-slate-400 mb-12 text-lg">Select a game mode to test your movie knowledge</p>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
-        {/* Visual Game Card */}
-        <div 
-          onClick={() => handleSelectGame(GameMode.VISUAL)}
-          className="group relative bg-cinema-800 rounded-3xl p-6 border border-cinema-700 hover:border-cinema-pop cursor-pointer transition-all hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(244,63,94,0.3)] text-left flex flex-col"
-        >
-          <div className="absolute top-4 right-4 bg-cinema-pop text-white text-[10px] font-bold px-3 py-1 rounded-full animate-pulse shadow-lg shadow-cinema-pop/50">
-            HOT
-          </div>
-          <div className="w-16 h-16 bg-cinema-900 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-inner border border-cinema-700/50">
-             <Film className="w-8 h-8 text-cinema-pop" />
-          </div>
-          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cinema-pop transition-colors">Visual Trivia</h3>
-          <p className="text-slate-400 text-sm mb-6 flex-grow">
-            Guess the movie from 3 abstract AI-generated images.
-          </p>
-          <div className="flex items-center gap-2 text-cinema-pop font-bold group-hover:gap-3 transition-all text-sm mt-auto">
-            <span>Play Now</span>
-            <PlayCircle className="w-5 h-5" />
-          </div>
-        </div>
-
+         
         {/* Emoji Game Card */}
         <div 
            onClick={() => handleSelectGame(GameMode.EMOJI)}
@@ -301,6 +281,24 @@ const App: React.FC = () => {
             <PlayCircle className="w-5 h-5" />
           </div>
         </div>
+        {/* Visual Game Card - COMING SOON */}
+                <div className="group relative bg-cinema-900/40 rounded-3xl p-6 border border-cinema-800 cursor-not-allowed overflow-hidden flex flex-col">
+                    <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] z-10 flex items-center justify-center"></div>
+                    <div className="absolute top-4 right-4 bg-cinema-800 text-slate-300 border border-cinema-700 text-[10px] font-bold px-3 py-1 rounded-full z-20">
+                      COMING SOON
+                    </div>
+                    
+                    <div className="w-16 h-16 bg-cinema-900 rounded-2xl flex items-center justify-center mb-6 grayscale opacity-50 border border-cinema-800">
+                      <Film className="w-8 h-8 text-slate-500" />
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-500 mb-2">Visual Trivia</h3>
+                    <p className="text-slate-600 text-sm mb-6 flex-grow">
+                      Guess the movie from 3 abstract AI-generated images.
+                    </p>
+                    <div className="flex items-center gap-2 text-slate-600 font-bold text-sm mt-auto">
+                      <span>Locked</span>
+                    </div>
+                </div>
 
         {/* Flappy Sing (Upcoming) */}
         <div className="group relative bg-cinema-900/40 rounded-3xl p-6 border border-cinema-800 cursor-not-allowed overflow-hidden flex flex-col">

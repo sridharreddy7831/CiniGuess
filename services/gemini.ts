@@ -156,9 +156,29 @@ export const generateMovieChallenge = async (era: string, mode: GameMode): Promi
 
     return challenge;
 
-  } catch (error) {
+  } catch (error: any) {
     console.error("Gemini API Error:", error);
-    throw new Error("Failed to generate movie challenge.");
+    
+    // Extract specific error message from API response
+    let errorMessage = "Failed to generate movie challenge.";
+    
+    if (error?.message) {
+      // Check for common API errors
+      if (error.message.includes("API key expired") || error.message.includes("expired")) {
+        errorMessage = "API key expired. Please renew your Gemini API key in .env.local file.";
+      } else if (error.message.includes("API key not valid") || error.message.includes("invalid")) {
+        errorMessage = "Invalid API key. Please check your GEMINI_API_KEY in .env.local file.";
+      } else if (error.message.includes("quota") || error.message.includes("429")) {
+        errorMessage = "API quota exceeded. Please try again later or upgrade your API plan.";
+      } else if (error.message.includes("network") || error.message.includes("ENOTFOUND")) {
+        errorMessage = "Network error. Please check your internet connection.";
+      } else {
+        // Use the actual error message if available
+        errorMessage = `API Error: ${error.message}`;
+      }
+    }
+    
+    throw new Error(errorMessage);
   }
 };
 
